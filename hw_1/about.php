@@ -1,7 +1,7 @@
 <?php
     $userName = 'Виктор';
     $userSurname = 'Костарев';
-    $useAge = 21;
+    $userAge = 21;
     $userEmail = 'kostarev.victor15@yandex.ru';
     $userCity = 'Новоуральск';
     $userAbout = 'Студент';
@@ -26,7 +26,7 @@
 		</tr>  
         <tr>
 		  <td>Возраст:</td>
-		  <td><?= $useAge ?></td>
+		  <td><?= $userAge ?></td>
 		</tr>
         <tr>
 		  <td>Адрес электронной почты:</td>
