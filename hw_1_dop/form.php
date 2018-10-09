@@ -2,7 +2,7 @@
 $x = (int) $_POST['x'];
 $a = 1;
 $b = 1;
-while ($a <= $x) {
+while ($a < $x) {
     $c = $a;
     $a = $a + $b;
     $b = $c;
