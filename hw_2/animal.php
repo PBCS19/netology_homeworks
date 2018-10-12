@@ -13,6 +13,7 @@ $array = [
         ];
 
 // 2 задание
+$count_animals = 0;
 foreach ($array as $key => $value){
     foreach ($value as $animals){
         $words = explode(" ", $animals); // разбиваем строку на подстроки по пробелу, получаем отдельно каждое слово
@@ -58,6 +59,7 @@ shuffle ($word2);
     </details>
     <h2>Названия из 2-х слов:</h2>
     <?php
+    $count = 0;
     foreach ($array_animals as $continents => $values) { // обход массива с животными из 2-х слов
         foreach ($values as $animals_2_words) {
             $count++;
