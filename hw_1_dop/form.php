@@ -1,5 +1,5 @@
 <?php
-$x = (int) $_POST['x'];
+$x = isset($_POST['x']) ? (int)$_POST['x'] : null;
 $a = 1;
 $b = 1;
 while ($a < $x) {
@@ -7,9 +7,9 @@ while ($a < $x) {
     $a = $a + $b;
     $b = $c;
 }
-if (isset($_POST['x']) && $a > $x) {
+if ($x != null && $a > $x) {
     echo "Задуманное число ($x) НЕ входит в числовой ряд Фибоначчи";
-} elseif ($a == $x) {
+} else {
     echo "Задуманное число ($x) входит в числовой ряд Фибоначчи";
 }
 ?>
