@@ -14,25 +14,20 @@ $array = [
 
 // 2 задание
 $count_animals = 0;
-foreach ($array as $key => $value){
+foreach ($array as $continents => $value){
     foreach ($value as $animals){
         $words = explode(" ", $animals); // разбиваем строку на подстроки по пробелу, получаем отдельно каждое слово
         $count_words = count($words); // кол-во слов
         if ($count_words === 2){
             $array_animals[$key][] = $animals;
-            $count_animals++; //общее кол-во животных в назв. которых 2 слова
+            $word1[$continents][] = $words[0]; // массив [континент,первое слово]
+            $word2[] = $words[1]; // массив из вторых слов
+//            $count_animals++; //общее кол-во животных в назв. которых 2 слова
         }
     }
 }
 
 // 3 задание
-foreach ($array_animals as $continents => $value) {
-    foreach ($value as $animals) {
-        $words = explode(" ", $animals);
-        $word1[$continents][] = $words[0]; // массив [континент,первое слово]
-        $word2[] = $words[1]; // массив из вторых слов
-    }
-}
 
 foreach ($word1 as $animals) {
    shuffle($animals); 
@@ -59,18 +54,21 @@ shuffle ($word2);
     </details>
     <h2>Названия из 2-х слов:</h2>
     <?php
-    $count = 0;
+//    $count = 0;
     foreach ($array_animals as $continents => $values) { // обход массива с животными из 2-х слов
-        foreach ($values as $animals_2_words) {
-            $count++;
-            echo $animals_2_words;
-            if ($count === $count_animals) {
-                echo '.';
-            } else {
-                echo ', ';
-            }
-        }
+        $animals_2_words = implode(", ", $values);
+        echo $animals_2_words;
+//        foreach ($values as $animals_2_words) {
+//            $count++;
+//            echo $animals_2_words;
+//            if ($count === $count_animals) {
+//                echo '.';
+//            } else {
+//                echo ', ';
+//            }
+//        }
     }
+    echo '.';
     ?>
     <h2>"Фантазийные" названия:</h2>
     <?php
