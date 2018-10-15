@@ -1,4 +1,7 @@
 <?php
+if (!$argv) {
+    exit();
+}
 $filename = 'money.csv';
 $price_arr = array_slice($argv, 1, 1);
 foreach ($price_arr as $numeric) {

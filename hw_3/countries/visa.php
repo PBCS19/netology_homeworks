@@ -1,4 +1,7 @@
 <?php
+if (!$argv) {
+    exit();
+}
 if ($argv[1] === null) {
     echo 'Пустой запрос';
 } else {
