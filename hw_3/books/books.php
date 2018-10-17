@@ -37,9 +37,33 @@ if ($argv[1] === null) {
                 break;
             }
         }
-        $id = $array_books['items'][0]['id'];
-        $title = $array_books['items'][0]['volumeInfo']['title'];
-        $authors = $array_books['items'][0]['volumeInfo']['authors'][0];
+//        $id = $array_books['items'][0]['id'];
+//        $title = $array_books['items'][0]['volumeInfo']['title'];
+//        $authors = $array_books['items'][0]['volumeInfo']['authors'][0];
+        
+        foreach ($array_books as $key => $values) { //проход по массиву $array_books
+            if ($key === 'items') {
+                foreach ($values as $values2) {
+                    foreach ($values2 as $keys_items => $values_items) {
+                        if ($keys_items === 'id') {
+                            $id = $values_items; //id
+                        } elseif ($keys_items === 'volumeInfo') {
+                            foreach ($values_items as $keys_volinf => $values_volinf) {
+                                if ($keys_volinf === 'title') {
+                                    $title = $values_volinf; //title
+                                } elseif ($keys_volinf === 'authors') {
+                                    foreach ($values_volinf as $values_authors) {
+                                        $authors_array[] = $values_authors; //массив авторов
+                                    }
+                                }
+                            }
+                        }
+                    }    
+                }
+            }
+        }
+        
+        $authors = implode(",", $authors_array);
 
         $array = ['id' => $id, 'title' => $title, 'authors' => $authors];
 
