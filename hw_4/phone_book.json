@@ -1,0 +1,50 @@
+{
+    "Name_Phone_Book": "Моя телефонная книга",
+    "Contacts":[
+        {
+            "firstName": "Александр",
+            "secondName": "Петров",
+            "address": {
+                "city": "Москва",
+                "street": "Ленина",
+                "numberHouse": 12,
+                "numberRoom": 1,
+                "postalCode": 1345222
+            },
+            "phoneNumbers": [
+                "+79631345123",
+                "+74958431245"
+            ]
+        },
+        {
+            "firstName": "Иван",
+            "secondName": "Николаев",
+            "address": {
+                "city": "Москва",
+                "street": "Уральская",
+                "numberHouse": 9,
+                "numberRoom": 64,
+                "postalCode": 1345435
+            },
+            "phoneNumbers": [
+                "+79633456143"
+            ]
+        },
+        {
+            "firstName": "Екатерина",
+            "secondName": "Попова",
+            "address": {
+                "city": "Екатеринбург",
+                "street": "Мира",
+                "numberHouse": 19,
+                "numberRoom": 44,
+                "postalCode": 2356831
+            },
+            "phoneNumbers": [
+                "+79633456143",
+                "+74951234444",
+                "+79999999999"
+            ]
+        }
+    ]
+}
