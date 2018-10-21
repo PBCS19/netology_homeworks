@@ -1,6 +1,9 @@
 <?php
-if (!$argv) {
-    exit();
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+if (empty($argv[1])) {
+    exit('Ошибка! Аргументы не заданы.');
 }
 $filename = 'money.csv';
 $price_arr = array_slice($argv, 1, 1);
