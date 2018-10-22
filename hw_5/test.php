@@ -4,9 +4,15 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 //открытие теста по номеру
+if(!isset($_GET['n'])) {
+    exit('Передайте переменную n. Пример: /test.php?n=1');
+}
 $testNumber = $_GET['n'];
 $listFile = scandir('./json');
-$id = $testNumber + 1;
+$id = (int)$testNumber + 1;
+if (empty($listFile[$id]) || $id === 1) {
+    exit('Не правильный номер теста');
+}
 foreach ($listFile as $key => $files) {
     if ($key === $id) {
         $file = $files;
