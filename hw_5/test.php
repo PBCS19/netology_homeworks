@@ -1,4 +1,8 @@
 <?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
 $test_number = $_GET['n'];
 $list_file = scandir('./json', 1);
 foreach (scandir('./json', 1) as $file) {
@@ -22,18 +26,11 @@ var_dump($test_array);
     <h1><?php echo $test_array['Name_Test']; ?></h1>
     <form action="" method="POST">
       <fieldset>
-        <legend>Сколько граммов в одном килограмме?</legend>
-          <label><input type="radio" name="q1"> 10</label>
-          <label><input type="radio" name="q1"> 100</label>
-          <label><input type="radio" name="q1"> 1000</label>
-          <label><input type="radio" name="q1"> 10000</label>
-      </fieldset>
-      <fieldset>
-        <legend>Сколько метров в одном дециметре?</legend>
-          <label><input type="radio" name="q2"> 100</label>
-          <label><input type="radio" name="q2"> 10</label>
-          <label><input type="radio" name="q2"> 0.1</label>
-          <label><input type="radio" name="q2"> 0.01</label>
+        <legend><?php echo $test_array['Question'][0]['First_Question']; ?></legend>
+          <label><input type="radio" name="q1" value="a"><?php echo $test_array['Question'][0]['Answers'][0]; ?></label>
+          <label><input type="radio" name="q1" value="b"><?php echo $test_array['Question'][0]['Answers'][1]; ?></label>
+          <label><input type="radio" name="q1" value="c"><?php echo $test_array['Question'][0]['Answers'][2]; ?></label>
+          <label><input type="radio" name="q1" value="d"><?php echo $test_array['Question'][0]['Answers'][3]; ?></label>
       </fieldset>
       <input type="submit" value="Отправить">  
     </form>

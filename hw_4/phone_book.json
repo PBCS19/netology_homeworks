@@ -1,5 +1,5 @@
 {
-    "Name_Phone_Book": "Моя телефонная книга",
+    "NamePhoneBook": "Моя телефонная книга",
     "Contacts":[
         {
             "firstName": "Александр",
