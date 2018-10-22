@@ -1,0 +1,35 @@
+{
+    "NameTest": "Test",
+    "Questions": [
+        {
+            "FirstQuestion": "Q1",
+            "Answers": [
+                "1f",
+                "2f",
+                "3f",
+                "4f"
+            ],
+            "RightAnswer": "3f"
+        },
+        {
+            "SecondQuestion": "Q2",
+            "Answers": [
+                "1s",
+                "2s",
+                "3s",
+                "4s"
+            ],
+            "RightAnswer": "2s"
+        },
+        {
+            "ThirdQuestion": "Q3",
+            "Answers": [
+                "1t",
+                "2t",
+                "3t",
+                "4t"
+            ],
+            "RightAnswer": "4t"
+        }
+    ]
+}
