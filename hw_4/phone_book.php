@@ -9,7 +9,7 @@ $phoneBookArray = json_decode($phoneBook, true);
         <title>Домашнее задание №4</title>
   </head>
   <body>
-    <div>
+    <!-- <div>
       <h1><?php echo $phoneBookArray['NamePhoneBook']; ?> - 1 вариант</h1>
       <table border="1">
         <tr>
@@ -53,7 +53,7 @@ $phoneBookArray = json_decode($phoneBook, true);
         }
         ?>
       </table>
-    </div>
+    </div> -->
     
     <div>
       <h1><?php echo $phoneBookArray['NamePhoneBook']; ?> - 2 вариант</h1>
@@ -65,41 +65,22 @@ $phoneBookArray = json_decode($phoneBook, true);
           <td>Телефонные номера</td>
         </tr>
         <?php
-        foreach ($contacts as $arrayContact):
-            foreach ($arrayContact as $keysContacts => $valuesContacts):
-                if ($keysContacts === 'firstName') { ?>
+        foreach ($contacts as $arrayContact): ?>
                     <tr>
-                      <td><?php echo $valuesContacts ?></td>
-                    <?php } elseif ($keysContacts === 'secondName') { ?>
-                      <td><?php echo $valuesContacts ?></td>
+                      <td><?php echo $arrayContact['firstName'] ?></td>
+                      <td><?php echo $arrayContact['secondName'] ?></td>
+                      <td><?php echo $arrayContact['address']['city'] . ', ' . $arrayContact['address']['street'] . ', ' . $arrayContact['address']['numberHouse'] . ', кв.' . $arrayContact['address']['numberRoom'] . ', индекс:' . $arrayContact['address']['postalCode'] ?></td>
                 <?php
-                } elseif ($keysContacts === 'address') {
-                    foreach ($valuesContacts as $address => $valuesAddress) {
-                        if ($address === 'numberRoom') {
-                            $valuesAddress = 'кв.' . $valuesAddress;
-                        }
-                        if ($address === 'postalCode') {
-                            $valuesAddress = 'индекс:' . $valuesAddress;
-                        }
-                        $addressArray[] = $valuesAddress;
-                    }
-                    $address = implode(", ", $addressArray);
-                    $addressArray = [];
-                ?>
-                      <td><?php echo $address ?></td>
-                <?php
-                } elseif ($keysContacts === 'phoneNumbers') {
-                    foreach ($valuesContacts as $phoneNumbers => $valuesPhoneNumbers) {
-                        $phoneNumbersArray[] = $valuesPhoneNumbers;
-                    }
-                    $phone = implode(", ", $phoneNumbersArray);
-                    $phoneNumbersArray = [];
+                $valuesContacts = isset($arrayContact['phoneNumbers']) ? $arrayContact['phoneNumbers'] : [];
+                foreach ($valuesContacts as $phoneNumbers => $valuesPhoneNumbers) {
+                    $phoneNumbersArray[] = $valuesPhoneNumbers;
+                }
+                $phone = implode(", ", $phoneNumbersArray);
+                $phoneNumbersArray = [];
                 ?>
                       <td><?php echo $phone ?></td>
                     </tr>
                 <?php
-                }
-            endforeach;
         endforeach;
         ?>
       </table>
