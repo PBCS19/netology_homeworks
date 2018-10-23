@@ -21,7 +21,7 @@ $phoneBookArray = json_decode($phoneBook, true);
           <td>Телефонные номера</td>
         </tr>
         <?php
-        $contacts = isset($phoneBookArray['Contacts']) ? $phoneBookArray['Contacts'] : [];
+        //$contacts = isset($phoneBookArray['Contacts']) ? $phoneBookArray['Contacts'] : [];
         foreach ($contacts as $arrayContact) {
             foreach ($arrayContact as $keysContacts => $valuesContacts) {
                 if ($keysContacts === 'firstName') {
@@ -68,6 +68,7 @@ $phoneBookArray = json_decode($phoneBook, true);
           <td>Телефонные номера</td>
         </tr>
         <?php
+        $contacts = isset($phoneBookArray['Contacts']) ? $phoneBookArray['Contacts'] : [];
         foreach ($contacts as $arrayContact): ?>
                     <tr>
                       <td><?php echo $arrayContact['firstName'] ?></td>
