@@ -9,7 +9,9 @@ $phoneBookArray = json_decode($phoneBook, true);
         <title>Домашнее задание №4</title>
   </head>
   <body>
-    <!-- <div>
+<!--
+Это старый вариант, ниже новый!
+    <div>
       <h1><?php echo $phoneBookArray['NamePhoneBook']; ?> - 1 вариант</h1>
       <table border="1">
         <tr>
@@ -53,7 +55,8 @@ $phoneBookArray = json_decode($phoneBook, true);
         }
         ?>
       </table>
-    </div> -->
+    </div>
+-->
     
     <div>
       <h1><?php echo $phoneBookArray['NamePhoneBook']; ?> - 2 вариант</h1>
