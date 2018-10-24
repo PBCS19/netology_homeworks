@@ -1,5 +1,5 @@
 <?php
-$listFile = scandir('./json');
+include 'function.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +12,8 @@ $listFile = scandir('./json');
     <ol>
       <?php
       foreach ($listFile as $key => $test) {
-          if ($test !== '.' && $test !== '..') {
-              $id = $key - 1;
-              echo '<li><a href="test.php?n=' . $id . '">Тест №' . $id . '</a></li><br>';
-          }
+          $id = $key + 1;
+          echo '<li><a href="test.php?n=' . $id . '">Тест №' . $id . '</a></li><br>';
       }
       ?>
     </ol>
