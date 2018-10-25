@@ -11,7 +11,7 @@ include 'function.php';
   <body>
     <ol>
       <?php
-      foreach ($listFile as $key => $test) {
+      foreach (getJsonList() as $key => $test) {
           $id = $key + 1;
           echo '<li><a href="test.php?n=' . $id . '">Тест №' . $id . '</a></li><br>';
       }

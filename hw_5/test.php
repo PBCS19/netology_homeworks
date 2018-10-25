@@ -11,10 +11,10 @@ if(!isset($_GET['n'])) {
 }
 $testNumber = $_GET['n'];
 $id = (int)$testNumber - 1;
-if (empty($listFile[$id]) || $id === -1) {
+if (empty(getJsonList()[$id]) || $id === -1) {
     exit('Не правильный номер теста');
 }
-foreach ($listFile as $key => $files) {
+foreach (getJsonList() as $key => $files) {
     if ($key === $id) {
         $file = $files;
         break;
