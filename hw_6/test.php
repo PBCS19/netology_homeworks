@@ -7,7 +7,7 @@ require 'function.php';
 
 //открытие теста по номеру
 if(!isset($_GET['n'])) {
-    http_response_code(404);
+    http_response_code(400);
     exit('Передайте переменную n. Пример: /test.php?n=1');
 }
 $testNumber = $_GET['n'];

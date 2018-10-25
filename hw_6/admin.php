@@ -4,6 +4,7 @@
             move_uploaded_file($_FILES["filename"]["tmp_name"], __DIR__ . '/json/' . $name_file);
             header('Location: ./list.php');
         } else {
+            http_response_code(400);
             echo 'Ошибка загрузки файла или файл не .json!';
         } 
 } else { ?>
