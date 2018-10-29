@@ -16,13 +16,23 @@ function getJsonList() {
 
 function redirect($location) {
     $host  = $_SERVER['HTTP_HOST'];
-    header("Location: http://$host/hw_7/$location");
+    header("Location: http://$host/user_data/vkostarev/me/hw_7/$location");
     exit();
 }
 
 function logout() {
     session_destroy();
     $host  = $_SERVER['HTTP_HOST'];
-    header("Location: http://$host/hw_7/index.php");
+    header("Location: http://$host/user_data/vkostarev/me/hw_7/index.php");
     exit();
+}
+
+function delTest($testNum) {
+    foreach (getJsonList() as $key => $testName) {
+        if ($key === $testNum) {
+            $test = $testName;
+            break;
+        }
+    }
+    unlink('json/' . $test);
 }
