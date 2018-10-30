@@ -3,7 +3,7 @@ require_once 'newsClass.php';
 if (isset($_POST['submit'])) 
 {
     $new = new NewsClass;
-    $new->addNews($_POST['name'], $_POST['new']);
+    $new->addNews(htmlspecialchars($_POST['name']), $_POST['new']);
     header('Location: index.php');
 }
 ?>
