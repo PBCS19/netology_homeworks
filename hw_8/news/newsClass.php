@@ -3,7 +3,7 @@ class NewsClass
 {
     private $name;
     private $new;
-    private $folder = 'addnews1';
+    private $folder = 'addnews';
 
 
 //    function __construct($name, $new)        
