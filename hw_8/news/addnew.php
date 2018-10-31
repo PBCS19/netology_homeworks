@@ -2,10 +2,19 @@
 require_once 'newsClass.php';
 if (isset($_POST['submit'])) 
 {
-    $new = new NewsClass;
-    $new->addNews(htmlspecialchars($_POST['name']), $_POST['new']);
-    header('Location: index.php');
+    if (empty($_POST['name'])) {
+        $errors[] = 'Введите имя';
+    } elseif (empty($_POST['new'])) {
+        $errors[] = 'Введите новость';
+    } else {
+        $new = new NewsClass;
+        $new->addNews(htmlspecialchars($_POST['name']), $_POST['new']);
+        header('Location: index.php');
+    }
 }
+if (!empty($errors)) {
+    echo '<p style="color: red;">' . array_shift($errors) . '</p>';
+}    
 ?>
 <!DOCTYPE html>
 <html lang="ru">
