@@ -3,7 +3,7 @@ class NewsClass
 {
     private $name;
     private $new;
-    private $folder = 'addnews';
+    private $folder = 'addnews1';
 
 
 //    function __construct($name, $new)        
@@ -37,6 +37,10 @@ class NewsClass
 
     public function displayNews() 
     {
+        if (empty($this->getJsonList())) {
+            http_response_code(404);
+            exit('Нет новостей');
+        }
         foreach ($this->getJsonList() as $nameFile) 
         {
            $filename = './' . $this->folder . '/' . $nameFile;

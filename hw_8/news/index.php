@@ -1,6 +1,10 @@
 <?php
 require_once 'newsClass.php';
 $new = new NewsClass;
+if (empty($new->displayNews())) {
+    http_response_code(404);
+    exit('Нет новостей');
+}
 if (isset($_POST['goCom'])) 
 {
     $arrayString = explode(' ', $_POST['goCom']);
@@ -14,7 +18,8 @@ if (isset($_POST['goCom']))
       
   </head>
   <body>
-  <?php  foreach ($new->displayNews() as $values) :
+  <?php
+  foreach ($new->displayNews() as $values) :
     foreach ($values as $key => $data) :
         if ($key === 'date')
         {
