@@ -1,4 +1,5 @@
 {
     "name": "admin",
-    "pas": "12345678"
+    "pas": "12345678",
+    "role": "administrator"
 }

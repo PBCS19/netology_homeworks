@@ -12,9 +12,9 @@ if (empty($_POST['login'])) {
 if (!empty($errors)) {
     echo '<p style="color: red;">' . array_shift($errors) . '</p>';
 } else {
-    $dataArray = ['name' => $_POST['login'], 'pas' => $_POST['password']];
+    $dataArray = ['name' => $_POST['login'], 'pas' => $_POST['password'], 'role' => 'user'];
     file_put_contents('./login/' . $_POST['login'] . '.json', json_encode($dataArray));
-    redirect('index.php');
+    redirect('../index.php');
     exit();
 }
 ?>

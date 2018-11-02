@@ -5,8 +5,8 @@ ini_set('display_startup_errors', 1);
 
 require_once 'function.php';
 
-if ( empty($_SESSION['log_user']) && empty($_SESSION['guest'])) {
-    redirect('index.php');
+if ( empty($_SESSION['log_user']) && empty($_SESSION['guest']) && empty($_SESSION['log_admin'])) {
+    redirect('./index.php');
     exit();
 }
 

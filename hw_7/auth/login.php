@@ -25,8 +25,12 @@ if (isset($_POST['submit'])) {
             }
             if ($loginArray['pas'] === $_POST['password']) {
 //                echo 'логин верный, редирект на list.php для админа';
-                $_SESSION['log_user'] = $loginArray['name'];
-                redirect('list.php');
+                if ($loginArray['role'] === 'administrator') {
+                    $_SESSION['log_admin'] = $loginArray['name'];
+                } else {
+                    $_SESSION['log_user'] = $loginArray['name'];
+                }
+                redirect('../list.php');
             } else {
                 $errors[] = 'Не верный пароль!';
             }

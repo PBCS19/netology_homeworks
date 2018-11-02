@@ -15,15 +15,13 @@ function getJsonList() {
 }
 
 function redirect($location) {
-    $host  = $_SERVER['HTTP_HOST'];
-    header("Location: http://$host/user_data/vkostarev/me/hw_7/$location");
+    header("Location: $location");
     exit();
 }
 
 function logout() {
     session_destroy();
-    $host  = $_SERVER['HTTP_HOST'];
-    header("Location: http://$host/user_data/vkostarev/me/hw_7/index.php");
+    header("Location: ../index.php");
     exit();
 }
 

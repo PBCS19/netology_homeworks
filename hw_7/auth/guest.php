@@ -1,14 +1,14 @@
 <?php
 require_once '../function.php';
 
-if ( !empty($_SESSION['log_user']) ) {
-    redirect('index.php');
+if ( !empty($_SESSION['log_user']) && !empty($_SESSION['log_admin']) ) {
+    redirect('../index.php');
     exit();
 }
 if (isset($_POST['submit'])) {
     if (!empty($_POST['name'])) {
         $_SESSION['guest'] = $_POST['name'];
-        redirect('index.php');
+        redirect('../index.php');
     } else {
         $errors[] = 'Введите имя';
     }
