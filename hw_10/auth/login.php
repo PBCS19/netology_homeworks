@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 session_start();
-require_once 'function.php';
+require_once '../function.php';
 require_once 'captcha.php';
 
 if (!empty($_COOKIE['ban'])) {
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
         }
     } else {
         $_SESSION['user_id'] = $login['id'];
-        redirect('index.php');
+        redirect('../index.php');
     }
 }
 ?>

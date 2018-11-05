@@ -9,8 +9,8 @@ require_once 'function.php';
   </head>
   <?php if (empty($_SESSION['user_id'])) : ?>
   <body>
-    <a href="login.php">Войти</a><br>
-    <a href="signup.php">Зарегистрироваться</a>
+    <a href="auth/login.php">Войти</a><br>
+    <a href="auth/signup.php">Зарегистрироваться</a>
   </body>
   <?php endif; ?>
   
@@ -94,7 +94,7 @@ require_once 'function.php';
     <p>Общее количество ваших дел: <?php $count = prepExpr($pdo, "SELECT count(*) as c FROM task as t WHERE t.user_id = :id OR t.assigned_user_id = :id", ['id'=>$_SESSION['user_id']]); 
     echo $count['c']?></p>
     
-    <a href="logout.php">Выход</a>
+    <a href="auth/logout.php">Выход</a>
   </body>
   <?php endif; ?>
 </html>

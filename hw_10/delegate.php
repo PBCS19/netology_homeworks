@@ -2,7 +2,8 @@
 session_start();
 require_once 'function.php';
 if (empty($_SESSION['user_id'])) {
-    redirect('login.php');
+    redirect('index.php');
+    exit();
 }
 prepExpr($pdo, 
         "UPDATE task SET assigned_user_id=:assigned_user_id WHERE id=:id AND user_id=:user_id", 

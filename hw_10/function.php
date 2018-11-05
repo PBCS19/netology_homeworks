@@ -14,6 +14,6 @@ function prepExpr($pdo, $expression, $login) {
 
 function logout() {
     session_destroy();
-    redirect('index.php');
+    redirect('../index.php');
     exit();
 }

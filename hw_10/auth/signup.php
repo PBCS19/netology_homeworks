@@ -1,5 +1,5 @@
 <?php
-require_once 'function.php';
+require_once '../function.php';
 
 $dataArray = [];
 $errors = [];
@@ -19,7 +19,7 @@ if (!empty($errors)) {
     echo '<p style="color: red;">' . array_shift($errors) . '</p>';
 } else {
     prepExpr($pdo, "INSERT INTO user (login, password) VALUES (:login, :password)", ['login' => $_POST['login'], 'password' => $_POST['password']]); 
-    redirect('index.php');
+    redirect('../index.php');
     exit();
 }
 ?>
