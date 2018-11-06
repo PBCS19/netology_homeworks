@@ -1,6 +1,6 @@
 <?php
 require_once 'db.php';
-$pdo = new PDO("mysql:host=$host;dbname=$dbname", "$login", "$password");
+$pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", "$login", "$password");
 if (isset($_POST['search'])) {
     $stmt = $pdo->prepare("SELECT * FROM books WHERE (name LIKE '%' ? '%') AND (isbn LIKE '%' ? '%') AND (author LIKE '%' ? '%')");
     $stmt->execute([htmlspecialchars($_POST['name']), htmlspecialchars($_POST['isbn']), htmlspecialchars($_POST['author'])]);
