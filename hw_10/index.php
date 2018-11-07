@@ -30,6 +30,10 @@ require_once 'function.php';
         <td>Исполнитель</td>
       </tr>
         <?php //$description = prepExpr($pdo, "SELECT description, date_added FROM task WHERE user_id=:id ORDER BY date_added DESC", ['id'=>$_SESSION['user_id']]);
+        $stmtAssignedUserList = $pdo->prepare("SELECT * FROM user"); 
+        $stmtAssignedUserList->execute();
+        $assignedUserList = $stmtAssignedUserList->fetchAll(PDO::FETCH_ASSOC);
+        
         $stmt = $pdo->prepare("SELECT * FROM task WHERE user_id=:id OR assigned_user_id=:id ORDER BY date_added DESC");
         $stmt->execute(['id'=>$_SESSION['user_id']]);
         while ($description = $stmt->fetch()) : ?>
@@ -42,23 +46,17 @@ require_once 'function.php';
                 echo 'Невыполнено'; 
             } ?></td>
             <td>
-              <?php 
-//              $assignedUserList = $pdo->prepare("SELECT * FROM ?");
-//              $assignedUserList->execute(['user']);
-              $assignedUserList = $pdo->query("SELECT * FROM user"); ?>
               <form action="delegate.php" method="POST">
                 <input name="task_id" type="hidden" value="<?php echo $description['id']; ?>"> 
                 <select name="assigned_user_id">
                 <?php foreach ($assignedUserList as $assignedUser): ?>
-                  <option <?php if ($task['assigned_user_id'] == $assignedUser['id']):?>
-                    selected<?php endif; ?> value="<?= $assignedUser['id'] ?>">
+                  <option <?php if ($description['assigned_user_id'] == $assignedUser['id']):?>
+                  selected<?php endif;?> value="<?= $assignedUser['id'] ?>">
                     <?= $assignedUser['login'] ?>
                   </option>
                 <?php endforeach; ?>
                 </select>
                 <button type="submit">Делегировать</button>
-                <?php $userLogin = prepExpr($pdo, "SELECT login FROM user WHERE id=?", [$description['assigned_user_id']]) ?>
-                <p>Исполнитель: <?php echo $userLogin['login']; ?></p>
               </form>
             </td>
             <td>
@@ -79,9 +77,9 @@ require_once 'function.php';
         <td>Дело</td>
       </tr>
       <?php
-      $stmt = $pdo->prepare("SELECT * FROM task t INNER JOIN user u ON u.id=t.assigned_user_id WHERE t.user_id =:id OR t.assigned_user_id = :id");
-      $stmt->execute(['id'=>$_SESSION['user_id']]);
-      while ($delegate = $stmt->fetch()) : ?>
+      $stmtDelegate = $pdo->prepare("SELECT * FROM task t INNER JOIN user u ON u.id=t.assigned_user_id WHERE t.user_id =:id OR t.assigned_user_id = :id");
+      $stmtDelegate->execute(['id'=>$_SESSION['user_id']]);
+      while ($delegate = $stmtDelegate->fetch()) : ?>
       <tr>
         <?php if ($delegate['user_id'] !== $delegate['assigned_user_id']) :?>
         <td><?= $delegate['login']?></td>

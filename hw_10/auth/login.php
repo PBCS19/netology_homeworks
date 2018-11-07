@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
     Пароль <input name="password" type="password"><br>
     <input name="submit" type="submit" value="Войти">
     </form>
-    <a href="index.php">На главную</a>
+    <a href="../index.php">На главную</a>
   </body>
   <?php } elseif ($_SESSION['countCaptcha'] >= 6) { ?>
   <head>
