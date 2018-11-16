@@ -5,7 +5,7 @@ class CaseController
 {   
     function add() {
         $case = new CaseClass();
-        $data = ['user_id' => $_SESSION['user_id'], 'assigned_user_id' => $_SESSION['user_id']];
+        $data = ['user_id' => $_SESSION['user_id'], 'assigned_user_id' => $_SESSION['user_id'], 'date_added' => date("Y-m-d H-i-s")];
         $errors = [];
         if (isset($_POST['description'])) {
             $data['description'] = $_POST['description'];

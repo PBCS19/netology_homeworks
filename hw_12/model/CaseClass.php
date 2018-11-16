@@ -3,8 +3,8 @@ class CaseClass
 {
     function addCase($param) {
         $sth = Di::get()->db()->prepare(
-                "INSERT INTO task (user_id, assigned_user_id, description) "
-                . "VALUES (:user_id, :assigned_user_id, :description)");
+                "INSERT INTO task (user_id, assigned_user_id, description, date_added) "
+                . "VALUES (:user_id, :assigned_user_id, :description, :date_added)");
         return $sth->execute($param);
     }
     
