@@ -17,6 +17,15 @@ class AuthController
         $errors = $this->registration();
         $this->checkErrorsSignup($errors);
     }
+    
+    function index() {
+        $case = new CaseClass();
+        $assignedUserList = $case->selectUser();
+        $stmt = $case->assignedUser();
+        $stmtDelegate = $case->selectDelegate();
+        $count = $case->countCase();
+        require_once 'view/index.php';
+    }
             
     function loginPass($login, $password) {
         $errors = [];

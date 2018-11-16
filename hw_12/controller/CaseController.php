@@ -18,7 +18,7 @@ class CaseController
                 redirect('index.php');
             }
         }
-        redirect('addcase.php');
+        redirect('index.php');
     }
     
     function del() {

@@ -22,7 +22,7 @@ class CaseClass
     
     function updateCase($param) {
         $sth = Di::get()->db()->prepare(
-                "UPDATE task SET is_done=1 WHERE user_id=:user_id AND id=:id LIMIT 1");
+                "UPDATE task SET is_done=1 WHERE (user_id=:user_id OR assigned_user_id=:user_id) AND id=:id LIMIT 1");
         return $sth->execute($param);
     }
     

@@ -51,11 +51,6 @@ if ($controller == 'guest') {
     if ($action == 'logout') {
         $auth->logout();
     } elseif ($action == 'index') {
-        $case = new CaseClass();
-        $assignedUserList = $case->selectUser();
-        $stmt = $case->assignedUser();
-        $stmtDelegate = $case->selectDelegate();
-        $count = $case->countCase();
-        require_once 'view/index.php';
+        $auth->index();
     }
 }

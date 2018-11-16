@@ -1,6 +1,6 @@
 <?php return [
 		'host' => 'localhost',
-		'dbname' => 'vkostarev',
-		'user' => 'vkostarev',
-		'pass' => 'neto1910',
+		'dbname' => 'todo',
+		'user' => 'root',
+		'pass' => '',
 	];
